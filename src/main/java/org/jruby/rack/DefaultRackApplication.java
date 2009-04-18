@@ -31,7 +31,7 @@ public class DefaultRackApplication implements RackApplication {
             final RubyIO io = new RubyIO(runtime, env.getInput());
             try {
                 IRubyObject servlet_env = JavaEmbedUtils.javaToRuby(runtime, env);
-                servlet_env.getMetaClass().defineMethod("to_io", new Callback() {
+                servlet_env.getSingletonClass().defineMethod("to_io", new Callback() {
                         public IRubyObject execute(IRubyObject recv, IRubyObject[] args, Block block) {
                             return io;
                         }
